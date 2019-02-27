@@ -1,0 +1,119 @@
+= RESTful Notes API Guide
+Lee Tae Su;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| 조회
+
+| `POST`
+| 생성
+
+| `PUT`
+| 전체변경
+
+| `PATCH`
+| 일부변경
+
+| `DELETE`
+| 삭제
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+= Member
+
+== Member 생성
+
+Http Response
+include::{snippets}/member-create-controller-test/생성_테스트/http-response.adoc[]
+
+Request fields 
+include::{snippets}/member-create-controller-test/생성_테스트/request-fields.adoc[]
+
+Response fields
+include::{snippets}/member-create-controller-test/생성_테스트/response-fields.adoc[]
+
+Links
+include::{snippets}/member-create-controller-test/생성_테스트/links.adoc[]
+
+Curl request
+include::{snippets}/member-create-controller-test/생성_테스트/curl-request.adoc[]
+
+Http request
+include::{snippets}/member-create-controller-test/생성_테스트/http-request.adoc[]
+
+Httpie request
+include::{snippets}/member-create-controller-test/생성_테스트/httpie-request.adoc[]
+
+Request body
+include::{snippets}/member-create-controller-test/생성_테스트/request-body.adoc[]
+
+Response body
+include::{snippets}/member-create-controller-test/생성_테스트/response-body.adoc[]
+
+== Member 조회
+
+Http Response
+include::{snippets}/member-search-controller-test/페이징_테스트/http-response.adoc[]
+
+Request Parameters
+include::{snippets}/member-search-controller-test/페이징_테스트/request-parameters.adoc[]
+
+Response fields
+include::{snippets}/member-search-controller-test/페이징_테스트/response-fields.adoc[]
+
+Links
+include::{snippets}/member-search-controller-test/페이징_테스트/links.adoc[]
+
+Curl request
+include::{snippets}/member-search-controller-test/페이징_테스트/curl-request.adoc[]
+
+Http request
+include::{snippets}/member-search-controller-test/페이징_테스트/http-request.adoc[]
+
+Httpie request
+include::{snippets}/member-search-controller-test/페이징_테스트/httpie-request.adoc[]
+
+Response body
+include::{snippets}/member-search-controller-test/페이징_테스트/response-body.adoc[]
