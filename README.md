@@ -162,7 +162,7 @@ public class MemberCreateController {
 
 ```
 
-MemberCreateService의 Input은 DTO이며 마찬가지로 Output도 DTO이다.
+MemberCreateService의 Input은 DTO이며 마찬가지로 Output도 DTO이다.  
 (Domain service가 아닌 Application service임을 주의)
 ```java
 @Service
@@ -275,8 +275,8 @@ public class MemberCreateControllerTest {
 hanLinks()는 HAL 스펙임을 알리는 것인데 Response header의 Content-Type이 HAL json이면 자동으로 활성화 된다. 
 
 또한 addAttributes 메소드를 통해 format이라는 Custom field를 추가했으므로  
-이러한 Custom field를 인식할 수 있도록 test resource 디렉토리 하위에 org/springframework/restdocs/templates/asciidoctor   디렉터리를
-만들고 아래의 snippet을 추가한다  
+이러한 Custom field를 인식할 수 있도록 test resource 디렉토리 하위에  
+[org/springframework/restdocs/templates/asciidoctor] 디렉터리를만들고 아래의 snippet을 추가한다  
 ```text
 |===
 |Field name|Type|Required|Format|Description
@@ -433,7 +433,7 @@ public class MemberSearchControllerTest {
 
 주의할 점은 생성 API와 마찬가지로 _links, _links.self, _links.self.*에 대한 경로를 명시적으로 ignore 해주려 했으나 실패했고  
 field로 처리하여 명시했다는 점이다.  
-_embedded.members[]._links, _embedded.members[]._links.self, _embedded.members[]._links.self.* 등을 명시적으로 무시하도록 하면  
+_embedded.members[]._links, _embedded.members[]._links.self, _embedded.members[]._links.self.* 등을 무시하도록 하면  
 response에 있는 필드가 문서화 되지 않았다거나, 명시한 경로는 없다거나 등의 갖가지 에러가 났다.  
 
 `정신건강을 위해 어느정도 타협하기로 했다.`
@@ -588,7 +588,6 @@ Maven install 라이프사이클을 실행하고 테스트가 정상적으로 �
 ### 마무리  
 생각보다 Spring rest docs를 설정하면서 많은 오류를 마주쳤는데 정리하자니 별것이 아닌 것 같아 기재하기는 힘들었다  
 Spring hateoas, Spring Data JPA에 연관된 내용이 많이 관련 내용을 모른다면 위에 정리된 내용을 이해하기는 힘들 것으로  
-생각된다. 다음 링크를 통해 <a href="https://github.com/dlxotn216/spring-hateoas">Spring Hateoas</a> Spring Hateaos와 관련된 내용을  
-숙지 후 위 내용을 진행하면 좋을 것 같다.  
+생각된다.   
+다음 링크를 통해 <a href="https://github.com/dlxotn216/spring-hateoas">Spring Hateoas Repository</a> hateoas와 관련된 내용을 숙지 후 위 내용을 진행하면 좋을 것 같다.  
  
-생각보다 API의 문서화
