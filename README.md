@@ -141,7 +141,8 @@ public class MemberCreateController {
     }
 
     @PostMapping("/members")
-    public ResponseEntity<MemberDto.MemberCreateResponse> createMember(@RequestBody MemberDto.MemberCreateRequest request){
+    public ResponseEntity<MemberDto.MemberCreateResponse> createMember(
+            @RequestBody MemberDto.MemberCreateRequest request){
         return ResponseEntity.status(HttpStatus.CREATED).body(this.memberCreateService.create(request));
     }
 }
@@ -282,7 +283,7 @@ hanLinks()는 HAL 스펙임을 알리는 것인데 Response header의 Content-Ty
 
 
 위의 테스트를 실행하면 아래와 같이 target/generated-snippets/member-create-controller-test 디렉토리 하위에 Snippet들이 생성된다.  
-<img src="" >
+<img width="400" src="https://raw.githubusercontent.com/dlxotn216/springrestdocs/master/src/main/resources/images/create-test-generated-snippets.png" >
 
  
 (2) 사용자 조회
@@ -377,20 +378,33 @@ public class MemberSearchControllerTest {
                                 parameterWithName("size").description("조회할 개수")
                         ),
                         responseFields(
-                                fieldWithPath("_embedded.members[].memberKey").type(JsonFieldType.NUMBER).description("사용자 key"),
-                                fieldWithPath("_embedded.members[].memberId").type(JsonFieldType.STRING).description("사용자 아이디"),
-                                fieldWithPath("_embedded.members[].name").type(JsonFieldType.STRING).description("사용자 이름"),
-                                fieldWithPath("_embedded.members[].joinedAt").type(JsonFieldType.STRING).description("사용자 가입일"),
-                                fieldWithPath("_embedded.members[]._links").type(JsonFieldType.OBJECT).description("Entity links"),
-                                fieldWithPath("_embedded.members[]._links.self").type(JsonFieldType.OBJECT).description("Self description"),
+                                fieldWithPath("_embedded.members[].memberKey")
+                                    .type(JsonFieldType.NUMBER).description("사용자 key"),
+                                fieldWithPath("_embedded.members[].memberId")
+                                    .type(JsonFieldType.STRING).description("사용자 아이디"),
+                                fieldWithPath("_embedded.members[].name")
+                                    .type(JsonFieldType.STRING).description("사용자 이름"),
+                                fieldWithPath("_embedded.members[].joinedAt")
+                                    .type(JsonFieldType.STRING).description("사용자 가입일"),
+                                fieldWithPath("_embedded.members[]._links")
+                                    .type(JsonFieldType.OBJECT).description("Entity links"),
+                                fieldWithPath("_embedded.members[]._links.self")
+                                    .type(JsonFieldType.OBJECT).description("Self description"),
                                 fieldWithPath("_embedded.members[]._links.self.*").ignored(),
-                                fieldWithPath("page.totalElements").type(JsonFieldType.NUMBER).description("전체 엘리먼트 개수"),
-                                fieldWithPath("page.totalPages").type(JsonFieldType.NUMBER).description("총 페이지 수"),
-                                fieldWithPath("page.first").type(JsonFieldType.BOOLEAN).description("첫번째 페이지 인지 여부"),
-                                fieldWithPath("page.last").type(JsonFieldType.BOOLEAN).description("마지막 페이지 인지 여부"),
-                                fieldWithPath("page.empty").type(JsonFieldType.BOOLEAN).description("비어있는지 여부"),
-                                fieldWithPath("page.number").type(JsonFieldType.NUMBER).description("현재 페이지 번호"),
-                                fieldWithPath("page.size").type(JsonFieldType.NUMBER).description("현재 조회 요청 개수"),
+                                fieldWithPath("page.totalElements")
+                                    .type(JsonFieldType.NUMBER).description("전체 엘리먼트 개수"),
+                                fieldWithPath("page.totalPages")
+                                    .type(JsonFieldType.NUMBER).description("총 페이지 수"),
+                                fieldWithPath("page.first")
+                                    .type(JsonFieldType.BOOLEAN).description("첫번째 페이지 인지 여부"),
+                                fieldWithPath("page.last")
+                                    .type(JsonFieldType.BOOLEAN).description("마지막 페이지 인지 여부"),
+                                fieldWithPath("page.empty")
+                                    .type(JsonFieldType.BOOLEAN).description("비어있는지 여부"),
+                                fieldWithPath("page.number")
+                                    .type(JsonFieldType.NUMBER).description("현재 페이지 번호"),
+                                fieldWithPath("page.size")
+                                    .type(JsonFieldType.NUMBER).description("현재 조회 요청 개수"),
                                 subsectionWithPath("_links").ignored()
                         ),
                         links(
@@ -412,7 +426,7 @@ response에 있는 필드가 문서화 되지 않았다거나, 명시한 경로�
 `정신건강을 위해 어느정도 타협하기로 했다.`
   
 위의 테스트를 실행하면 아래와 같이 target/generated-snippets/member-search-controller-test 디렉토리 하위에 Snippet들이 생성된다.  
-<img src="" >
+<img width="400" src="https://raw.githubusercontent.com/dlxotn216/springrestdocs/master/src/main/resources/images/search-test-generated-snippets.png" >
 
 
 ### Rest docs 생성
@@ -551,6 +565,8 @@ Maven install 라이프사이클을 실행하고 테스트가 정상적으로 �
 
 
   
-<img src="" />
-<img src="" />
-<img src="" />
+<img width="600" src="https://raw.githubusercontent.com/dlxotn216/springrestdocs/master/src/main/resources/images/result-create.png" />  
+  
+<img width="600" src="https://raw.githubusercontent.com/dlxotn216/springrestdocs/master/src/main/resources/images/result-search-body.png" />  
+  
+<img width="600" src="https://raw.githubusercontent.com/dlxotn216/springrestdocs/master/src/main/resources/images/result-search-res-field.png" />
