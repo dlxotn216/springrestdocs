@@ -3,6 +3,7 @@ package app.springrestful.member.application.service;
 import app.springrestful.member.domain.repository.MemberRepository;
 import app.springrestful.member.interfaces.model.MemberDto;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by taesu at : 2019-02-21
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  * @since 1.0
  */
-@Component
+@Service
 public class MemberCreateService {
     private MemberRepository repository;
 
