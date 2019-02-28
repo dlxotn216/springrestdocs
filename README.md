@@ -1,5 +1,16 @@
 # Spring Rest Docs
 
+
+코드 레벨의 문서화는 javadoc 표준을 따라 개발자가 잘 작성하면 된다.  
+그렇다면 API에 대한 문서화는 어떻게 진행해야하나?   
+이전까지는 Swagger를 통해 문서화를 진행했으나 몇 가지 단점을 발견되어 실제 적용이 힘들었다.  
+(1) Command Object에 객체 중첩 레벨이 많으면 생각보다 build에 시간이 오래걸린다  
+(2) 오랜 build 끝에 생성 된 json 객체를 swaager-ui를 통해 import 하는 도중에 웹 페이지가 죽는 현상이 잦다  
+(3) Swagger를 위해 코드의 변경이 필요하다. Annotation을 통해 작성하므로 개발자 입장에선 가독성이 떨어지는 문제가 있다.   
+(4) 해당 API가 제대로 동작하는지 알 수 없다. (테스트를 기반으로 하지 않으므로)  
+  
+ `여기서 소개하는 Spring Rest Docs는 위에 단점들을 충분히 커버할 수 있다고 생각한다`
+
 ### 프로젝트 설정
 
 String Boot 기반으로 아래와 같이 설정
@@ -570,3 +581,12 @@ Maven install 라이프사이클을 실행하고 테스트가 정상적으로 �
 <img width="600" src="https://raw.githubusercontent.com/dlxotn216/springrestdocs/master/src/main/resources/images/result-search-body.png" />  
   
 <img width="600" src="https://raw.githubusercontent.com/dlxotn216/springrestdocs/master/src/main/resources/images/result-search-res-field.png" />
+
+
+### 마무리  
+생각보다 Spring rest docs를 설정하면서 많은 오류를 마주쳤는데 정리하자니 별것이 아닌 것 같아 기재하기는 힘들었다  
+Spring hateoas, Spring Data JPA에 연관된 내용이 많이 관련 내용을 모른다면 위에 정리된 내용을 이해하기는 힘들 것으로  
+생각된다. 다음 링크를 통해 <a href="https://github.com/dlxotn216/spring-hateoas">Spring Hateoas</a> Spring Hateaos와 관련된 내용을  
+숙지 후 위 내용을 진행하면 좋을 것 같다.  
+ 
+생각보다 API의 문서화
