@@ -2,6 +2,7 @@ package app.springrestful.member.interfaces.controller;
 
 import app.springrestful.member.application.service.MemberCreateService;
 import app.springrestful.member.interfaces.model.MemberDto;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,8 @@ public class MemberCreateController {
 
     @PostMapping("/members")
     public ResponseEntity<MemberDto.MemberCreateResponse> createMember(@RequestBody MemberDto.MemberCreateRequest request){
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.memberCreateService.create(request));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .contentType(MediaTypes.HAL_JSON)
+                .body(this.memberCreateService.create(request));
     }
 }

@@ -5,8 +5,10 @@ import app.springrestful.member.application.service.MemberSearchService;
 import app.springrestful.member.interfaces.model.MemberDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,11 +36,15 @@ public class MemberSearchController {
                                        new CustomPageMetadata(page),
                                        ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(
                                                this.getClass()).searchMembers(pageable)).withSelfRel());
-        return ResponseEntity.ok(body);
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaTypes.HAL_JSON)
+                .body(body);
     }
 
     @GetMapping("/members/{memberKey}")
     public ResponseEntity<MemberDto.MemberSearchResponse> searchMember(@PathVariable("memberKey") Long memberKey) {
-        return ResponseEntity.ok(this.memberSearchService.searchMember(memberKey));
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaTypes.HAL_JSON)
+                .body(this.memberSearchService.searchMember(memberKey));
     }
 }
